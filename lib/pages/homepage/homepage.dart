@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_flutter_620710135/pages/controller/controller_list.dart';
+import 'package:project_flutter_620710135/pages/favorite/favorite_page.dart';
 import 'package:project_flutter_620710135/pages/headset/headset_list.dart';
 import 'package:project_flutter_620710135/pages/keyboard/keyboard_list.dart';
 import 'package:project_flutter_620710135/pages/mouse/mouse_list.dart';
@@ -66,50 +69,76 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 )),
-            ListTile(
-              title: _buildDreawerItem(
+            
+            
+            ExpansionTile(
+              title: Row(
+                children: [
                   const Icon(
-                    Icons.keyboard,
+                    Icons.sports_esports,
                     color: Colors.black,
                   ),
-                  'Keyboard Gamimg'),
-               onTap: () => _showSubPage(0),
+                  SizedBox.shrink(),
+                  Text(' GAMING GEAR',style: TextStyle(fontSize:18.0),),
+                ],
+              ),
+              children: [
+                ListTile(
+                  title: _buildDreawerItem(
+                      const Icon(
+                        Icons.keyboard,
+                        color: Colors.black,
+                      ),
+                      'Keyboard Gamimg'),
+                   onTap: () => _showSubPage(0),
+                ),
+                ListTile(
+                  title: _buildDreawerItem(
+                      const Icon(
+                        Icons.mouse,
+                        color: Colors.black,
+                      ),
+                      'Mouse Gaming'),
+                  onTap: () => _showSubPage(1)
+                ),
+                ListTile(
+                  title: _buildDreawerItem(
+                      const Icon(
+                        Icons.headphones,
+                        color: Colors.black,
+                      ),
+                      'Headset'),
+                  onTap: () => _showSubPage(2)
+                ),
+                ListTile(
+                  title: _buildDreawerItem(
+                      const Icon(
+                        Icons.mouse,
+                        color: Colors.black,
+                      ),
+                      'Mouse Pad'),
+                  onTap: () => _showSubPage(3)
+                ),
+                ListTile(
+                  title: _buildDreawerItem(
+                      const Icon(
+                        Icons.control_camera,
+                        color: Colors.black,
+                      ),
+                      'Controller'),
+                  onTap: () => _showSubPage(4)
+                ),
+
+              ],
             ),
             ListTile(
-              title: _buildDreawerItem(
-                  const Icon(
-                    Icons.mouse,
-                    color: Colors.black,
-                  ),
-                  'Mouse Gaming'),
-              onTap: () => _showSubPage(1)
-            ),
-            ListTile(
-              title: _buildDreawerItem(
-                  const Icon(
-                    Icons.headphones,
-                    color: Colors.black,
-                  ),
-                  'Headset'),
-              onTap: () => _showSubPage(2)
-            ),
-            ListTile(
-              title: _buildDreawerItem(
-                  const Icon(
-                    Icons.mouse,
-                    color: Colors.black,
-                  ),
-                  'Mouse Pad'),
-              onTap: () => _showSubPage(3)
-            ),
-            ListTile(
-              title: _buildDreawerItem(
-                  const Icon(
-                    Icons.control_camera,
-                    color: Colors.black,
-                  ),
-                  'Controller'),
-              onTap: () => _showSubPage(4)
+                title: _buildDreawerItem(
+                    const Icon(
+                      Icons.favorite,
+                      color: Colors.black,
+                    ),
+                    'Favorite'),
+                onTap: () => _showSubPage(5)
             ),
           ],
         ),
@@ -150,6 +179,9 @@ class _HomePageState extends State<HomePage> {
 
       case 4:
         return const controllerPage();
+
+      case 5:
+        return const FavoritePage();
 
       default:
         return Center(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_flutter_620710135/models/item.dart';
 import 'package:project_flutter_620710135/models/shop_item.dart';
 import 'package:project_flutter_620710135/pages/detail/datail_page.dart';
 
@@ -11,6 +12,7 @@ class mousepadPage extends StatefulWidget {
 }
 
 class _mousepadPageState extends State<mousepadPage> {
+  List<Item> items = ItemDB.mousepad;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +66,7 @@ class _mousepadPageState extends State<mousepadPage> {
                             width: 8.0,
                           ),
                           Text(
-                            '${item.price} บาท',
+                            '${item.price} BAHT',
                             style: TextStyle(fontSize: 15.0),
                           ),
                         ],
@@ -80,20 +82,5 @@ class _mousepadPageState extends State<mousepadPage> {
     );
   }
 
-  var items = [
-    Item(
-        id: 1,
-        title: 'G840 XL LEAGUE OF LEGENDS EDITION',
-        price: 1690,
-        image: 'p_G840_league.jpg',
-        detail: 'DIMENSION 900 X 400 X 3 MM',
-        type: "mousepad"),
-    Item(
-        id: 2,
-        title: 'LG-G640 LARGE CLOTH',
-        price: 890,
-        image: 'p_G640.jpg',
-        detail: 'DIMENSION 460 X 400 X 3 MM',
-        type: "mousepad"),
-  ];
+
 }

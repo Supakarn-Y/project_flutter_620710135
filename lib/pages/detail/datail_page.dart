@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_flutter_620710135/models/shop_item.dart';
+import 'package:project_flutter_620710135/pages/favorite/favorite_page.dart';
 
 class DetailPage extends StatefulWidget {
   static const routeName = '/detail';
@@ -13,10 +14,7 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    var items = ModalRoute
-        .of(context)!
-        .settings
-        .arguments as Item;
+    var items = ModalRoute.of(context)!.settings.arguments as Item;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -91,9 +89,13 @@ class _DetailPageState extends State<DetailPage> {
                       //   backgroundColor: ,
                       // ),
                       onPressed: () {
-                        setState(() {
-                          items.like = true;
-                        });
+                        items.like ? null : FavoritePage.favorite.add(items);
+                        items.like
+                            ? _showMaterialDialog("INVALID",
+                                " LOGITECT ${items.title} IS ALREADY ADDED")
+                            : _showMaterialDialog("Add Complete",
+                                "LOGITECT ${items.title} ADD IN FAVORITE MENU");
+                        items.like = true;
                       },
                       child: Icon(
                         Icons.thumb_up_outlined,
@@ -108,10 +110,6 @@ class _DetailPageState extends State<DetailPage> {
         ),
       ),
     );
-  }
-
-  _addfavorite (){
-
   }
 
   void _showMaterialDialog(String title, String msg) {
@@ -135,5 +133,4 @@ class _DetailPageState extends State<DetailPage> {
       },
     );
   }
-
 }

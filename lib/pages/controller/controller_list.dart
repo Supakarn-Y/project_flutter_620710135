@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_flutter_620710135/models/item.dart';
 import 'package:project_flutter_620710135/models/shop_item.dart';
 import 'package:project_flutter_620710135/pages/detail/datail_page.dart';
 
@@ -11,6 +12,7 @@ class controllerPage extends StatefulWidget {
 }
 
 class _controllerPageState extends State<controllerPage> {
+  List<Item> items = ItemDB.controller;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +66,7 @@ class _controllerPageState extends State<controllerPage> {
                             width: 8.0,
                           ),
                           Text(
-                            '${item.price} บาท',
+                            '${item.price} BAHT',
                             style: TextStyle(fontSize: 15.0),
                           ),
                         ],
@@ -80,34 +82,4 @@ class _controllerPageState extends State<controllerPage> {
     );
   }
 
-  var items = [
-    Item(
-        id: 1,
-        title: 'G29 DRIVING FORCE WHEEL',
-        price: 11900,
-        image: 'joy_G29.png',
-        detail: 'SUPPORT : PC / PS3 / PS4',
-        type: "controller"),
-    Item(
-        id: 2,
-        title: 'LG-SHIFTER DRIVING FORCE',
-        price: 2190,
-        image: 'joy_shifter.png',
-        detail: 'SUPPORT : PC / XBOX / PS4',
-        type: "controller"),
-    Item(
-        id: 3,
-        title: 'F710 WIRELESS GAMEPAD',
-        price: 1590,
-        image: 'joy_F710.png',
-        detail: 'SUPPORT : PC',
-        type: "controller"),
-    Item(
-        id: 4,
-        title: 'F310 CONSOLE STYTE',
-        price: 760,
-        image: 'joy_F310.png',
-        detail: 'SUPPORT : PC',
-        type: "controller"),
-  ];
 }
