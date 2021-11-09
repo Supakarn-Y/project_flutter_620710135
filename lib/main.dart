@@ -3,8 +3,8 @@ import 'package:project_flutter_620710135/pages/controller/controller_list.dart'
 import 'package:project_flutter_620710135/pages/detail/datail_page.dart';
 import 'package:project_flutter_620710135/pages/favorite/favorite_page.dart';
 import 'package:project_flutter_620710135/pages/headset/headset_list.dart';
-import 'package:project_flutter_620710135/pages/homepage/home_menu.dart';
 import 'package:project_flutter_620710135/pages/homepage/homepage.dart';
+import 'package:project_flutter_620710135/pages/homepage/startpage.dart';
 import 'package:project_flutter_620710135/pages/keyboard/keyboard_list.dart';
 import 'package:project_flutter_620710135/pages/mouse/mouse_list.dart';
 import 'package:project_flutter_620710135/pages/mouse_pad/mousepad_list.dart';
@@ -28,7 +28,6 @@ class MyApp extends StatelessWidget {
 
       routes: {
         HomePage.routeName: (context) => const HomePage(),
-        MenuPage.routeName: (context) => const  MenuPage(),
         KeyboardPage.routeName: (context) => const KeyboardPage(),
         mousePage.routeName: (context) => const mousePage(),
         headsetPage.routeName: (context) => const headsetPage(),
@@ -38,7 +37,7 @@ class MyApp extends StatelessWidget {
         FavoritePage.routeName: (context) => const FavoritePage(),
         cartPage.routeName: (context) => const cartPage(),
       },
-      home: const HomePage(),
+      home: const StartPage(),
     );
   }
 }

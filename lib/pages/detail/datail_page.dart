@@ -93,7 +93,7 @@ class _DetailPageState extends State<DetailPage> {
                         setState(() {
                           cartPage.cart.add(items);
                         });
-                         _showMaterialDialog("Add Complete",
+                         _showMaterialDialog("ADD SUCCESS ✔",
                             "LOGITECT ${items.title} ADD IN CART");
                       },
                       child: Icon(
@@ -121,9 +121,9 @@ class _DetailPageState extends State<DetailPage> {
                       onPressed: () {
                         items.like ? null : FavoritePage.favorite.add(items);
                         items.like
-                            ? _showMaterialDialog("INVALID",
+                            ? _showMaterialDialog("INVALID ✖",
                                 " LOGITECT ${items.title} IS ALREADY ADDED")
-                            : _showMaterialDialog("Add Complete",
+                            : _showMaterialDialog("ADD SUCCESS ✔",
                                 "LOGITECT ${items.title} ADD IN FAVORITE MENU");
                         items.like = true;
                       },
@@ -133,7 +133,8 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                     )
                   ],
-                )
+                ),
+
               ],
             ),
           ],

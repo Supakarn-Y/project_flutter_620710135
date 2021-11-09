@@ -94,14 +94,14 @@ class ItemDB {
         type: "mouse"),
     Item(
         id: 3,
-        title: "GPRO-X SUPERLIGHT WIRELESS (BLACK)",
+        title: "GPRO-X SUPERLIGHT WIRELESS",
         price: 4990,
         image: "m_gprox_super.jpg",
         detail: "OPTICAL SENSOR : 100-25400 DPI",
         type: "mouse"),
     Item(
         id: 4,
-        title: "GPRO-X SUPERLIGHT WIRELESS (WHITE)",
+        title: "GPRO-X SUPERLIGHT WIRELESS",
         price: 4990,
         image: "m_gprox_superwhite.jpg",
         detail: "OPTICAL SENSOR : 100-25400 DPI",

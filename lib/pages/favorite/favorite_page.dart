@@ -95,7 +95,7 @@ class _FavoritePageState extends State<FavoritePage> {
                             width: 8.0,
                           ),
                           Text(
-                            '${item.price} บาท',
+                            '${item.price} BAHT',
                             style: TextStyle(fontSize: 15.0),
                           ),
                         ],

@@ -1,4 +1,4 @@
-import 'dart:html';
+
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:project_flutter_620710135/pages/controller/controller_list.dart';
 import 'package:project_flutter_620710135/pages/favorite/favorite_page.dart';
 import 'package:project_flutter_620710135/pages/headset/headset_list.dart';
-import 'package:project_flutter_620710135/pages/homepage/home_menu.dart';
 import 'package:project_flutter_620710135/pages/keyboard/keyboard_list.dart';
 import 'package:project_flutter_620710135/pages/mouse/mouse_list.dart';
 import 'package:project_flutter_620710135/pages/mouse_pad/mousepad_list.dart';
@@ -14,7 +13,7 @@ import 'package:project_flutter_620710135/pages/shop/cart_page.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/home';
-  static String title = "SU GAMING SHOP";
+  static String title = "KEYBOARD GAMING";
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -22,7 +21,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var _subPageIndex = 0;
+  var _subPageIndex = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +40,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -49,33 +49,19 @@ class _HomePageState extends State<HomePage> {
                           child: SizedBox(
                             width: 70.0,
                             height: 70.0,
-                            child: Image.asset('assets/images/profile.jpg'),
+                            child: Image.asset('assets/images/logo.png'),
                           )),
                     ),
                     Text(
-                      'Suapakarn Yoojongdee',
+                      'GXN GAMING SHOP',
                       style: GoogleFonts.roboto(
                           color: Colors.white, fontSize: 20.0),
                     ),
-                    Text(
-                      'Yoojongdee_s@silpakorn.edu',
-                      style: GoogleFonts.roboto(
-                          color: Colors.white70, fontSize: 13.0),
-                    ),
+
                   ],
                 )),
 
-            ListTile(
-                title: _buildDreawerItem(
-                    const Icon(
-                      Icons.home,
-                      color: Colors.black,
-                    ),
-                    'HOME'),
-                onTap: () {
-                  HomePage.title = "SU GAMING SHOP";
-                  _showSubPage(0);}
-            ),
+
             ExpansionTile(
               title: Row(
                 children: [
@@ -124,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                 ListTile(
                   title: _buildDreawerItem(
                       const Icon(
-                        Icons.mouse,
+                        Icons.crop_square,
                         color: Colors.black,
                       ),
                       ' Mouse Pad'),
@@ -136,7 +122,7 @@ class _HomePageState extends State<HomePage> {
 
                   title: _buildDreawerItem(
                       const Icon(
-                        Icons.control_camera,
+                        Icons.gamepad,
                         color: Colors.black,
                       ),
                       ' Controller'),
@@ -144,7 +130,6 @@ class _HomePageState extends State<HomePage> {
                     HomePage.title = "CONTROLLER GAMING";
                     _showSubPage(5);}
                 ),
-
               ],
             ),
             ListTile(
@@ -194,9 +179,6 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildSubPage() {
     switch (_subPageIndex) {
-      case 0:
-        return const MenuPage();
-
       case 1:
         return const KeyboardPage();
 

@@ -19,14 +19,13 @@ class _cartPageState extends State<cartPage> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           for(var item in cartPage.cart)
               priceAll += item.price;
 
           setState(() {
-            _showMaterialDialog('Are you sure to buy this item?','The total price of all products is ${priceAll}\npress OK to confirm');
+            _showMaterialDialog('Are you sure to buy this item?','The total price of all products is ${priceAll} Baht\npress OK to confirm');
           });
         },
         child: const Icon(Icons.shopping_cart),
@@ -159,7 +158,6 @@ class _cartPageState extends State<cartPage> {
                 Navigator.of(context).pop();
               },
             ),
-
           ],
         );
       },
