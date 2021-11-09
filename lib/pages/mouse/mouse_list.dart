@@ -16,6 +16,7 @@ class _mousePageState extends State<mousePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(

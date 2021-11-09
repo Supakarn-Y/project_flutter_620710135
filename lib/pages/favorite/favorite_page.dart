@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:project_flutter_620710135/models/item.dart';
 import 'package:project_flutter_620710135/models/shop_item.dart';
 import 'package:project_flutter_620710135/pages/detail/datail_page.dart';
-import 'package:project_flutter_620710135/pages/keyboard/keyboard_list.dart';
 
 class FavoritePage extends StatefulWidget {
+  static const routeName = '/favorite';
   static List<Item> favorite = [];
   const FavoritePage({Key? key}) : super(key: key);
 
@@ -19,11 +19,24 @@ class _FavoritePageState extends State<FavoritePage> {
   Widget build(BuildContext context) {
     return Scaffold(
 
+
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
             FavoritePage.favorite.clear();
             for(var item in ItemDB.keyborad){
+              item.like = false ;
+            }
+            for(var item in ItemDB.mouse){
+              item.like = false ;
+            }
+            for(var item in ItemDB.headset){
+              item.like = false ;
+            }
+            for(var item in ItemDB.mousepad){
+              item.like = false ;
+            }
+            for(var item in ItemDB.controller){
               item.like = false ;
             }
           });

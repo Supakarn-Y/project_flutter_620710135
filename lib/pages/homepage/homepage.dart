@@ -1,3 +1,4 @@
+import 'dart:html';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -5,12 +6,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:project_flutter_620710135/pages/controller/controller_list.dart';
 import 'package:project_flutter_620710135/pages/favorite/favorite_page.dart';
 import 'package:project_flutter_620710135/pages/headset/headset_list.dart';
+import 'package:project_flutter_620710135/pages/homepage/home_menu.dart';
 import 'package:project_flutter_620710135/pages/keyboard/keyboard_list.dart';
 import 'package:project_flutter_620710135/pages/mouse/mouse_list.dart';
 import 'package:project_flutter_620710135/pages/mouse_pad/mousepad_list.dart';
+import 'package:project_flutter_620710135/pages/shop/cart_page.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/home';
+  static String title = "SU GAMING SHOP";
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -24,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SU GAMING GEAR"),
+        title:  Text(HomePage.title),
         backgroundColor: Colors.black,
       ),
       drawer: Drawer(
@@ -33,16 +37,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             DrawerHeader(
                 decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    // ไล่เฉดจากมุมบนซ้ายไปมุมล่างขวาของ Container
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    // ไล่เฉดจากสีแดงไปสีน้ำเงิน
-                    colors: [
-                      Colors.black,
-                      Colors.black,
-                    ],
-                  ),
+                  color: Colors.black
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,8 +64,18 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 )),
-            
-            
+
+            ListTile(
+                title: _buildDreawerItem(
+                    const Icon(
+                      Icons.home,
+                      color: Colors.black,
+                    ),
+                    'HOME'),
+                onTap: () {
+                  HomePage.title = "SU GAMING SHOP";
+                  _showSubPage(0);}
+            ),
             ExpansionTile(
               title: Row(
                 children: [
@@ -79,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.black,
                   ),
                   SizedBox.shrink(),
-                  Text(' GAMING GEAR',style: TextStyle(fontSize:18.0),),
+                  Text('  GAMING GEAR',style: TextStyle(fontSize:18.0),),
                 ],
               ),
               children: [
@@ -89,8 +94,10 @@ class _HomePageState extends State<HomePage> {
                         Icons.keyboard,
                         color: Colors.black,
                       ),
-                      'Keyboard Gamimg'),
-                   onTap: () => _showSubPage(0),
+                      ' Keyboard Gamimg'),
+                   onTap: ()  {
+                     HomePage.title = "KEYBOARD GAMING";
+                    _showSubPage(1);}
                 ),
                 ListTile(
                   title: _buildDreawerItem(
@@ -98,8 +105,10 @@ class _HomePageState extends State<HomePage> {
                         Icons.mouse,
                         color: Colors.black,
                       ),
-                      'Mouse Gaming'),
-                  onTap: () => _showSubPage(1)
+                      ' Mouse Gaming'),
+                  onTap: () {
+                    HomePage.title = "MOUSE GAMING";
+                    _showSubPage(2);}
                 ),
                 ListTile(
                   title: _buildDreawerItem(
@@ -107,8 +116,10 @@ class _HomePageState extends State<HomePage> {
                         Icons.headphones,
                         color: Colors.black,
                       ),
-                      'Headset'),
-                  onTap: () => _showSubPage(2)
+                      ' Headset'),
+                  onTap: () {
+                    HomePage.title = "HEADSET GAMING";
+                    _showSubPage(3);}
                 ),
                 ListTile(
                   title: _buildDreawerItem(
@@ -116,17 +127,22 @@ class _HomePageState extends State<HomePage> {
                         Icons.mouse,
                         color: Colors.black,
                       ),
-                      'Mouse Pad'),
-                  onTap: () => _showSubPage(3)
+                      ' Mouse Pad'),
+                  onTap: () {
+                    HomePage.title = "MOUSEPAD GAMING";
+                    _showSubPage(4);}
                 ),
                 ListTile(
+
                   title: _buildDreawerItem(
                       const Icon(
                         Icons.control_camera,
                         color: Colors.black,
                       ),
-                      'Controller'),
-                  onTap: () => _showSubPage(4)
+                      ' Controller'),
+                  onTap: () {
+                    HomePage.title = "CONTROLLER GAMING";
+                    _showSubPage(5);}
                 ),
 
               ],
@@ -138,7 +154,20 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.black,
                     ),
                     'Favorite'),
-                onTap: () => _showSubPage(5)
+                onTap: () {
+                  HomePage.title = "FAVORITE";
+                  _showSubPage(6);}
+            ),
+            ListTile(
+                title: _buildDreawerItem(
+                    const Icon(
+                      Icons.shopping_cart,
+                      color: Colors.black,
+                    ),
+                    'Cart'),
+                onTap: () {
+                  HomePage.title = "CART";
+                  _showSubPage(7);}
             ),
           ],
         ),
@@ -166,22 +195,28 @@ class _HomePageState extends State<HomePage> {
   Widget _buildSubPage() {
     switch (_subPageIndex) {
       case 0:
-        return const KeyboardPage();
+        return const MenuPage();
 
       case 1:
-        return const mousePage();
+        return const KeyboardPage();
 
       case 2:
-        return const headsetPage();
+        return const mousePage();
 
       case 3:
-        return const mousepadPage();
+        return const headsetPage();
 
       case 4:
-        return const controllerPage();
+        return const mousepadPage();
 
       case 5:
+        return const controllerPage();
+
+      case 6:
         return const FavoritePage();
+
+      case 7:
+        return const cartPage();
 
       default:
         return Center(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_flutter_620710135/models/shop_item.dart';
 import 'package:project_flutter_620710135/pages/favorite/favorite_page.dart';
+import 'package:project_flutter_620710135/pages/shop/cart_page.dart';
 
 class DetailPage extends StatefulWidget {
   static const routeName = '/detail';
@@ -79,15 +80,44 @@ class _DetailPageState extends State<DetailPage> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        'Do you like this?',
+                        'ADD THIS ITEM TO CART',
                         style: GoogleFonts.prompt(
                             fontSize: 15.0, color: Colors.white),
                       ),
                     ),
                     ElevatedButton(
-                      // style: ButtonStyle(
-                      //   backgroundColor: ,
-                      // ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white, // background
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          cartPage.cart.add(items);
+                        });
+                         _showMaterialDialog("Add Complete",
+                            "LOGITECT ${items.title} ADD IN CART");
+                      },
+                      child: Icon(
+                        Icons.add_shopping_cart,
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'ADD THIS ITEM TO FAVORITE ',
+                        style: GoogleFonts.prompt(
+                            fontSize: 15.0, color: Colors.white),
+                      ),
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white, // background
+                      ),
                       onPressed: () {
                         items.like ? null : FavoritePage.favorite.add(items);
                         items.like
@@ -98,8 +128,8 @@ class _DetailPageState extends State<DetailPage> {
                         items.like = true;
                       },
                       child: Icon(
-                        Icons.thumb_up_outlined,
-                        color: Colors.white,
+                        Icons.favorite,
+                        color: Colors.black,
                       ),
                     )
                   ],

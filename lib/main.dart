@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:project_flutter_620710135/pages/controller/controller_list.dart';
 import 'package:project_flutter_620710135/pages/detail/datail_page.dart';
+import 'package:project_flutter_620710135/pages/favorite/favorite_page.dart';
 import 'package:project_flutter_620710135/pages/headset/headset_list.dart';
+import 'package:project_flutter_620710135/pages/homepage/home_menu.dart';
 import 'package:project_flutter_620710135/pages/homepage/homepage.dart';
 import 'package:project_flutter_620710135/pages/keyboard/keyboard_list.dart';
 import 'package:project_flutter_620710135/pages/mouse/mouse_list.dart';
 import 'package:project_flutter_620710135/pages/mouse_pad/mousepad_list.dart';
+import 'package:project_flutter_620710135/pages/shop/cart_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,12 +28,15 @@ class MyApp extends StatelessWidget {
 
       routes: {
         HomePage.routeName: (context) => const HomePage(),
+        MenuPage.routeName: (context) => const  MenuPage(),
         KeyboardPage.routeName: (context) => const KeyboardPage(),
         mousePage.routeName: (context) => const mousePage(),
         headsetPage.routeName: (context) => const headsetPage(),
         mousepadPage.routeName: (context) => const mousepadPage(),
         controllerPage.routeName: (context) => const controllerPage(),
         DetailPage.routeName: (context) => const DetailPage(),
+        FavoritePage.routeName: (context) => const FavoritePage(),
+        cartPage.routeName: (context) => const cartPage(),
       },
       home: const HomePage(),
     );
