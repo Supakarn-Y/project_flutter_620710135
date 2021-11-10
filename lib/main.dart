@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
 
       routes: {
         HomePage.routeName: (context) => const HomePage(),
+        StartPage.routeName: (context) => const StartPage(),
         KeyboardPage.routeName: (context) => const KeyboardPage(),
         mousePage.routeName: (context) => const mousePage(),
         headsetPage.routeName: (context) => const headsetPage(),
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         FavoritePage.routeName: (context) => const FavoritePage(),
         cartPage.routeName: (context) => const cartPage(),
       },
-      home: const StartPage(),
+      initialRoute : StartPage.routeName,
     );
   }
 }
