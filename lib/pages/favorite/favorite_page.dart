@@ -83,7 +83,9 @@ class _FavoritePageState extends State<FavoritePage> {
                           width: 60.0,
                           height: 60.0,
                         ),
-                        SizedBox.shrink(),
+                        const SizedBox(
+                          width: 8.0,
+                        ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,7 +98,7 @@ class _FavoritePageState extends State<FavoritePage> {
                               width: 8.0,
                             ),
                             Text(
-                              '${item.price} BAHT',
+                              ' ${item.price} BAHT',
                               style: TextStyle(fontSize: 15.0),
                             ),
                           ],
