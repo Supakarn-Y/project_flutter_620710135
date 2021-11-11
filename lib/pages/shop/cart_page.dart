@@ -24,7 +24,7 @@ class _cartPageState extends State<cartPage> {
               priceAll += item.price;
 
           setState(() {
-            _showMaterialDialog('Are you sure to buy this item?','The total price of all products is ${priceAll} Baht\npress OK to confirm');
+            _showMaterialDialog('TOTAL PRICE','The total price of all products is ${priceAll} Baht');
           });
         },
         child: const Icon(Icons.shopping_cart),
@@ -46,6 +46,7 @@ class _cartPageState extends State<cartPage> {
               margin: const EdgeInsets.all(8.0),
               elevation: 5.0,
               shadowColor: Colors.black.withOpacity(0.2),
+              color: Colors.white.withOpacity(0.7),
               child: InkWell(
                 onTap: () {
                   print(item);
@@ -124,36 +125,7 @@ class _cartPageState extends State<cartPage> {
               child: const Text('OK'),
               onPressed: () {
                 setState(() {
-                  cartPage.cart.clear();
                 });
-                Navigator.of(context).pop();
-                _DialogConfirm("SUCCESS", "PURCHASE SUCCESSFUL");
-              },
-            ),
-            TextButton(
-              child: const Text('CANCLE'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-  void _DialogConfirm(String title, String msg) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(title),
-          content: Text(msg, style: TextStyle()),
-          actions: [
-            // ปุ่ม OK ใน dialog
-            TextButton(
-              child: const Text('OK'),
-              onPressed: () {
-
                 Navigator.of(context).pop();
               },
             ),

@@ -62,6 +62,7 @@ class _FavoritePageState extends State<FavoritePage> {
               margin: const EdgeInsets.all(8.0),
               elevation: 5.0,
               shadowColor: Colors.black.withOpacity(0.2),
+              color: Colors.white.withOpacity(0.7),
               child: InkWell(
                 onTap: () {
                   print(item);
@@ -72,31 +73,48 @@ class _FavoritePageState extends State<FavoritePage> {
                   );
                 },
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset(
-                        'assets/images/${item.type}/${item.image}',
-                        width: 60.0,
-                        height: 60.0,
-                      ),
-                      //Icon(Icons.person),
-                      const SizedBox(
-                        width: 8.0,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      Row(children: [
+                        Image.asset(
+                          'assets/images/${item.type}/${item.image}',
+                          width: 60.0,
+                          height: 60.0,
+                        ),
+                        SizedBox.shrink(),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '${item.title}',
+                              style: TextStyle(fontSize: 15.0),
+                            ),
+                            const SizedBox(
+                              width: 8.0,
+                            ),
+                            Text(
+                              '${item.price} BAHT',
+                              style: TextStyle(fontSize: 15.0),
+                            ),
+                          ],
+                        ),
+                      ]),
+                      Row(
                         children: [
-                          Text(
-                            '${item.title}',
-                            style: TextStyle(fontSize: 15.0),
-                          ),
-                          const SizedBox(
-                            width: 8.0,
-                          ),
-                          Text(
-                            '${item.price} BAHT',
-                            style: TextStyle(fontSize: 15.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      FavoritePage.favorite.removeAt(index);
+                                    });
+                                  },
+                                  icon: Icon(Icons.clear)),
+                            ],
                           ),
                         ],
                       ),

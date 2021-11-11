@@ -34,6 +34,7 @@ class _KeyboardPageState extends State<KeyboardPage> {
               margin: const EdgeInsets.all(8.0),
               elevation: 5.0,
               shadowColor: Colors.black.withOpacity(0.2),
+              color: Colors.white.withOpacity(0.7),
               child: InkWell(
                 onTap: () {
                   print(item);
