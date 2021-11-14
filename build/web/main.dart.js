@@ -57658,7 +57658,7 @@ U.EB.prototype={}
 X.pd.prototype={}
 F.CZ.prototype={
 L(a,b){var s=X.afc(null,C.oN)
-return new S.tU(P.aT(["/home",new F.UK(),"/start",new F.UL(),"/keyboard",new F.UM(),"/mouse",new F.UN(),"/headset",new F.UO(),"/mousepad",new F.UP(),"/controller",new F.UQ(),"/detail",new F.UR(),"/favorite",new F.US(),"/cart",new F.UT()],t.N,t.Ab),"/start","Flutter Demo",s,null)}}
+return new S.tU(P.aT(["/home",new F.UK(),"/start",new F.UL(),"/keyboard",new F.UM(),"/mouse",new F.UN(),"/headset",new F.UO(),"/mousepad",new F.UP(),"/controller",new F.UQ(),"/detail",new F.UR(),"/favorite",new F.US(),"/cart",new F.UT()],t.N,t.Ab),"/start","GXN GAMING SHOP",s,null)}}
 F.UK.prototype={
 $1(a){return C.Ac},
 $S:361}
